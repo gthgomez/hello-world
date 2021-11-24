@@ -1,0 +1,21 @@
+private void selectionSort() {
+		Node p = start;
+
+		while (p != null) {
+			Node minItem = p;
+			Node possibleNewMin = p.getNext();
+
+			while (possibleNewMin != null) {
+				if (minItem.getItem().getName().compareTo(possibleNewMin.getItem().getName())) {
+					minItem = possibleNewMin;
+				}
+				possibleNewMin = possibleNewMin.getNext();
+
+			}
+			Student temp = p.getItem();
+			p.setItem(minItem.getItem());
+			minItem.setItem(temp);
+
+			p = p.getNext();
+		}
+	}
